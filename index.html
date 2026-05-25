@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eversun - Premium Kitchenware & Houseware Export | Professional B2B Supplier</title>
+<meta name="description" content="Eversun - 12 years of kitchenware export expertise. FDA, LFGB, BSCI, ISO 9001, BRCGS certified. Serving US, South America & Mexico markets with premium silicone kitchenware, cookware, and daily necessities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   CSS RESET & VARIABLES
+   ======================================== */
+:root {
+  --forest: #1B4332;
+  --forest-light: #2D6A4F;
+  --forest-dark: #0F2E21;
+  --gold: #C9972C;
+  --gold-light: #E0B84C;
+  --gold-dark: #A07820;
+  --cream: #FBFAF5;
+  --cream-dark: #F0EDE0;
+  --white: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --text-medium: #4A4A4A;
+  --text-light: #8A8A8A;
+  --border: #E8E5DA;
+  --shadow-sm: 0 2px 8px rgba(27, 67, 50, 0.06);
+  --shadow-md: 0 4px 20px rgba(27, 67, 50, 0.10);
+  --shadow-lg: 0 8px 40px rgba(27, 67, 50, 0.14);
+  --shadow-xl: 0 16px 60px rgba(27, 67, 50, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --max-width: 1280px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   PRELOADER
+   ======================================== */
+.preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s, visibility 0.6s;
+}
+.preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-logo {
+  width: 80px; height: 80px;
+  border: 3px solid var(--gold);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 0;
+  transition: all var(--transition);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px 0;
+  box-shadow: var(--shadow-sm);
+}
+.nav-container {
+  max-width: var(--max-width); margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; transition: filter var(--transition);
+}
+.nav-logo img { height: 40px; width: auto; transition: all var(--transition); }
+.nav.scrolled .nav-logo { filter: none; }
+.nav.scrolled .nav-logo img { filter: none; }
+/* hero dark bg -> brighten logo */
+.nav:not(.scrolled) .nav-logo img { filter: brightness(10); }
+.nav-links { display: flex; gap: 36px; align-items: center; list-style: none; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  transition: color var(--transition); position: relative;
+}
+.nav.scrolled .nav-links a { color: var(--text-medium); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width var(--transition);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: var(--white) !important;
+  padding: 10px 24px !important; border-radius: 50px !important;
+  font-weight: 600 !important;
+  transition: all var(--transition) !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+
+.mobile-toggle {
+  display: none; background: none; border: none;
+  width: 32px; height: 24px; position: relative; cursor: pointer;
+}
+.mobile-toggle span {
+  position: absolute; width: 100%; height: 2px; background: var(--white);
+  transition: all var(--transition); left: 0;
+}
+.nav.scrolled .mobile-toggle span { background: var(--forest); }
+.mobile-toggle span:nth-child(1) { top: 0; }
+.mobile-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.mobile-toggle span:nth-child(3) { bottom: 0; }
+.mobile-toggle.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.mobile-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-toggle.active span:nth-child(3) { top: 50%; transform: translateY(-50%) rotate(-45deg); }
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--forest-dark) 0%, #163A28 30%, var(--forest) 60%, #1F5346 100%);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(201,151,44,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(201,151,44,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(45,106,79,0.15) 0%, transparent 70%);
+}
+.hero-particles {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.hero-particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(201,151,44,0.15);
+  animation: float 20s infinite ease-in-out;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  25% { transform: translateY(-30px) translateX(20px) scale(1.1); }
+  50% { transform: translateY(-15px) translateX(-15px) scale(0.95); }
+  75% { transform: translateY(-40px) translateX(10px) scale(1.05); }
+}
+.hero-content {
+  position: relative; z-index: 2; text-align: center;
+  max-width: 900px; padding: 0 40px;
+}
+.hero-badge {
+  display: inline-block; background: rgba(201,151,44,0.15);
+  border: 1px solid rgba(201,151,44,0.3);
+  color: var(--gold-light); padding: 8px 20px; border-radius: 50px;
+  font-size: 14px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 32px;
+  animation: fadeInUp 0.8s ease-out;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 7vw, 76px); font-weight: 700;
+  color: var(--white); line-height: 1.15; margin-bottom: 24px;
+  animation: fadeInUp 0.8s 0.1s ease-out both;
+}
+.hero-title span { color: var(--gold); font-style: italic; }
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px); color: rgba(255,255,255,0.7);
+  font-weight: 300; max-width: 740px; margin: 0 auto 40px;
+  line-height: 1.8;
+  animation: fadeInUp 0.8s 0.2s ease-out both;
+}
+.hero-actions {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  animation: fadeInUp 0.8s 0.3s ease-out both;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
+  transition: all var(--transition);
+}
+.btn-primary {
+  background: var(--gold); color: var(--white);
+  box-shadow: 0 4px 20px rgba(201,151,44,0.35);
+}
+.btn-primary:hover {
+  background: var(--gold-light); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,151,44,0.45);
+}
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover {
+  border-color: var(--white); background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  z-index: 2; animation: bounce 2s infinite;
+}
+.hero-scroll span {
+  display: block; width: 24px; height: 40px;
+  border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; position: relative;
+}
+.hero-scroll span::after {
+  content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 8px; background: var(--gold); border-radius: 2px;
+  animation: scrollDot 2s infinite;
+}
+@keyframes scrollDot {
+  0%, 100% { top: 8px; opacity: 1; }
+  50% { top: 20px; opacity: 0.3; }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ========================================
+   SECTION COMMON
+   ======================================== */
+.section {
+  padding: 100px 40px;
+  position: relative;
+}
+.section-container {
+  max-width: var(--max-width); margin: 0 auto;
+}
+.section-label {
+  display: inline-block; font-size: 13px; font-weight: 600;
+  color: var(--gold); text-transform: uppercase; letter-spacing: 2.5px;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 48px); font-weight: 700;
+  color: var(--forest); line-height: 1.2; margin-bottom: 20px;
+}
+.section-desc {
+  font-size: 17px; color: var(--text-medium); max-width: 620px;
+  line-height: 1.8;
+}
+.section-title.light { color: var(--white); }
+.section-desc.light { color: rgba(255,255,255,0.7); }
+
+/* Reveal animations */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   ABOUT
+   ======================================== */
+.about { background: var(--white); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center; margin-top: 60px;
+}
+.about-image {
+  position: relative;
+}
+.about-image-main {
+  width: 100%; height: 480px; border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-lg);
+  position: relative; cursor: pointer;
+}
+.about-image-slide {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+.about-image-slide.active { opacity: 1; z-index: 2; }
+.about-image-slide:not(.active) { opacity: 0; z-index: 1; }
+.about-image-dots {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 3;
+}
+.about-image-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.5); transition: all 0.3s ease;
+}
+.about-image-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+.about-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(27,67,50,0.05) 100%);
+}
+.about-stats {
+  position: absolute; bottom: -30px; right: -30px;
+  background: var(--forest); color: var(--white);
+  padding: 32px 36px; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.about-stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700; color: var(--gold);
+  line-height: 1;
+}
+.about-stat-label { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+.about-values { margin-top: 40px; }
+.about-value-item {
+  display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start;
+}
+.about-value-icon {
+  width: 48px; height: 48px; border-radius: var(--radius-sm);
+  background: var(--cream-dark); display: flex; align-items: center;
+  justify-content: center; font-size: 20px; flex-shrink: 0;
+}
+.about-value-title {
+  font-weight: 600; font-size: 16px; color: var(--text-dark); margin-bottom: 4px;
+}
+.about-value-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+/* ========================================
+   PRODUCTS
+   ======================================== */
+.products { background: var(--cream); }
+.products-header { text-align: center; margin-bottom: 60px; }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.product-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+  transition: all var(--transition); cursor: pointer;
+  border: 1px solid var(--border);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+.product-img {
+  width: 100%; height: 220px; overflow: hidden; position: relative;
+}
+.product-img-inner {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.product-card:hover .product-img-inner { transform: scale(1.08); }
+.product-info { padding: 24px; }
+.product-name {
+  font-weight: 600; font-size: 17px; color: var(--text-dark); margin-bottom: 6px;
+}
+.product-count {
+  font-size: 13px; color: var(--text-light);
+}
+/* Category color accents */
+.product-card:nth-child(1) .product-img { background: linear-gradient(135deg, #E8F0EB, #DCE8E1); }
+.product-card:nth-child(2) .product-img { background: linear-gradient(135deg, #F5F0E6, #EDE5D5); }
+.product-card:nth-child(3) .product-img { background: linear-gradient(135deg, #EBF0F3, #D9E3E9); }
+.product-card:nth-child(4) .product-img { background: linear-gradient(135deg, #F0EDF2, #E4DEE8); }
+.product-card:nth-child(5) .product-img { background: linear-gradient(135deg, #E8F0EE, #D5E8E1); }
+.product-card:nth-child(6) .product-img { background: linear-gradient(135deg, #F2EFE8, #E8E3D5); }
+.product-card:nth-child(7) .product-img { background: linear-gradient(135deg, #EDF0EC, #DDE5D8); }
+.product-card:nth-child(8) .product-img { background: linear-gradient(135deg, #F0EEEA, #E5E1D8); }
+
+/* ========================================
+   CERTIFICATIONS
+   ======================================== */
+.certs { background: var(--white); }
+.certs-header { text-align: center; margin-bottom: 60px; }
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+.cert-card {
+  background: var(--cream); border-radius: var(--radius-lg);
+  padding: 40px 28px; text-align: center;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.cert-card:hover {
+  background: var(--white);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.cert-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--forest); color: var(--gold);
+  font-size: 26px; font-weight: 700;
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+}
+.cert-name {
+  font-weight: 700; font-size: 20px; color: var(--text-dark); margin-bottom: 8px;
+}
+.cert-desc {
+  font-size: 13px; color: var(--text-light); line-height: 1.6;
+}
+
+/* ========================================
+   CAPABILITIES
+   ======================================== */
+.capabilities { background: var(--forest); color: var(--white); }
+.capabilities-grid {
+  margin-top: 60px;
+}
+.cap-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.cap-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md); padding: 28px;
+  transition: all var(--transition);
+}
+.cap-item:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(201,151,44,0.3);
+}
+.cap-item-icon { font-size: 28px; margin-bottom: 16px; }
+.cap-item-title {
+  font-weight: 600; font-size: 16px; margin-bottom: 8px;
+  color: var(--white);
+}
+.cap-item-desc {
+  font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6;
+}
+.cap-highlights { margin-top: 40px; }
+.cap-highlight {
+  display: flex; gap: 24px; padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  align-items: center;
+}
+.cap-highlight-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 700; color: var(--gold);
+  min-width: 80px; line-height: 1;
+}
+.cap-highlight-label { font-size: 16px; font-weight: 500; }
+.cap-highlight-desc { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* ========================================
+   MARKETS
+   ======================================== */
+.markets { background: var(--cream); }
+.markets-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 60px;
+}
+.market-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 44px 32px; text-align: center;
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.market-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.market-pct {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px; font-weight: 700; color: var(--forest);
+  margin-bottom: 8px; line-height: 1.1;
+}
+.market-name { font-weight: 600; font-size: 16px; color: var(--text-medium); }
+
+/* ========================================
+   CONTACT
+   ======================================== */
+.contact { background: var(--white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start; margin-top: 60px;
+}
+.contact-info-item {
+  display: flex; gap: 16px; margin-bottom: 32px; align-items: flex-start;
+}
+.contact-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--cream-dark); display: flex; align-items: center;
+  justify-content: center; font-size: 20px; flex-shrink: 0;
+}
+.contact-info-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+.contact-info-desc { font-size: 14px; color: var(--text-light); }
+
+.contact-form {
+  background: var(--cream); border-radius: var(--radius-xl);
+  padding: 40px; border: 1px solid var(--border);
+}
+.form-group { margin-bottom: 20px; }
+.form-label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--text-medium); margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.form-input, .form-textarea {
+  width: 100%; padding: 14px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 15px; font-family: inherit;
+  transition: all var(--transition);
+  color: var(--text-dark);
+}
+.form-input:focus, .form-textarea:focus {
+  outline: none; border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,151,44,0.1);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%; padding: 16px; background: var(--forest);
+  color: var(--white); border-radius: 50px;
+  font-size: 16px; font-weight: 600;
+  transition: all var(--transition);
+}
+.form-submit:hover {
+  background: var(--forest-light); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: var(--forest-dark); color: rgba(255,255,255,0.7);
+  padding: 60px 40px 30px;
+}
+.footer-container { max-width: var(--max-width); margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand-name {
+  margin-bottom: 16px;
+}
+.footer-brand-name img { height: 40px; width: auto; }
+.footer-brand-desc {
+  font-size: 14px; line-height: 1.8; max-width: 300px;
+}
+.footer-col-title {
+  font-weight: 600; font-size: 13px; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+}
+.footer-col-links { list-style: none; }
+.footer-col-links li { margin-bottom: 12px; }
+.footer-col-links a {
+  font-size: 14px; transition: color var(--transition);
+}
+.footer-col-links a:hover { color: var(--gold); }
+.footer-bottom {
+  padding-top: 30px; display: flex;
+  justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+  font-size: 13px;
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: all var(--transition);
+}
+.footer-social a:hover { background: var(--gold); color: var(--white); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .about-grid, .capabilities-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-stats { position: static; margin-top: 24px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .cap-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .section { padding: 70px 24px; }
+  .mobile-toggle { display: block; }
+  .nav-links {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: var(--white); flex-direction: column; padding: 100px 40px;
+    gap: 24px; transition: right var(--transition); box-shadow: var(--shadow-xl);
+  }
+  .nav-links.active { right: 0; }
+  .nav-links a { color: var(--text-medium) !important; font-size: 16px; }
+  .nav-cta { margin-top: 16px; display: inline-block; text-align: center; }
+  .hero-title { font-size: 36px; }
+  .markets-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .certs-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .cap-list { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 0.4s;
+  padding: 24px;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal {
+  background: var(--white); border-radius: var(--radius-xl);
+  max-width: 640px; width: 100%; max-height: 85vh;
+  overflow-y: auto; padding: 48px; position: relative;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(20px); transition: transform 0.4s;
+}
+.modal-overlay.active .modal { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--cream-dark); border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer;
+  transition: all var(--transition);
+}
+.modal-close:hover { background: var(--forest); color: var(--white); }
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; color: var(--forest); margin-bottom: 20px;
+}
+.modal-body { font-size: 15px; color: var(--text-medium); line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-logo"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo"><img src="images/logo.png" alt="Eversun"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#oem">OEM/ODM</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#quality">Quality</a></li>
+      <li><a href="#contact" class="nav-cta">Inquire Now</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Since 2014 · 12+ Years · 50+ Countries · 2000+ Products</div>
+    <h1 class="hero-title">Innovating Your <span>Kitchen</span> Life</h1>
+    <p class="hero-subtitle">
+      Premium kitchen utensils & creative gadgets manufacturer.<br>
+      3 production facilities · 200+ staff · 50+ patents<br>
+      FDA · LFGB · BSCI · ISO 9001 · BRCGS — trusted across Europe & Americas.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Start Your Inquiry &#8594;</a>
+      <a href="#about" class="btn btn-outline">Discover Eversun</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span></span>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Yangjiang Eversun Housewares Co., Ltd.</h2>
+      <p class="section-desc">
+        Since our founding in 2014, Eversun has been dedicated to the design, development, and manufacturing of high-quality kitchen utensils and creative kitchen gadgets. With over 12 years of deep industry expertise, we have built a reputation for combining functional innovation with exceptional craftsmanship. Our products are trusted by leading retailers, importers, and distributors across Europe, North America, and South America.
+      </p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-main" id="aboutImageSlider">
+          <img src="images/office.jpg"   class="about-image-slide active" alt="Eversun Office" data-index="0">
+          <img src="images/showroom.jpg" class="about-image-slide"        alt="Eversun Showroom" data-index="1">
+          <img src="images/office-2.jpg" class="about-image-slide"        alt="Eversun Office 2" data-index="2">
+          <div class="about-image-overlay"></div>
+          <div class="about-image-dots">
+            <span class="about-image-dot active" data-dot="0"></span>
+            <span class="about-image-dot" data-dot="1"></span>
+            <span class="about-image-dot" data-dot="2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-values">
+          <div class="about-value-item">
+            <div class="about-value-icon">&#127978;</div>
+            <div>
+              <div class="about-value-title">In-House Design & R&D</div>
+              <div class="about-value-desc">Dedicated R&D team with 50+ design and utility patents. Continuous innovation with 2 new product lines per year. CAD drawings and 3D prototypes provided for every new development.</div>
+            </div>
+          </div>
+          <div class="about-value-item">
+            <div class="about-value-icon">&#127981;</div>
+            <div>
+              <div class="about-value-title">3 Manufacturing Facilities</div>
+              <div class="about-value-desc">200+ skilled staff across 3 production sites. Annual output exceeds 3 million units. Full in-house manufacturing from molding to assembly ensures quality and cost control.</div>
+            </div>
+          </div>
+          <div class="about-value-item">
+            <div class="about-value-icon">&#128270;</div>
+            <div>
+              <div class="about-value-title">Rigorous Quality Control</div>
+              <div class="about-value-desc">Full-chain IQC · IPQC · FQC inspection system. 99.2% pass rate, less than 0.5% defect rate. Third-party lab testing by SGS, BV, Intertek available.</div>
+            </div>
+          </div>
+          <div class="about-value-item">
+            <div class="about-value-icon">&#128230;</div>
+            <div>
+              <div class="about-value-title">Global Logistics Ready</div>
+              <div class="about-value-desc">Experienced in FCL/LCL shipping to 50+ countries. In-house showroom and regular Canton Fair presence (B47-48, Hall 1.2, Area A). Multilingual team: English, Spanish, Chinese.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="section products" id="products">
+  <div class="section-container">
+    <div class="products-header reveal">
+      <div class="section-label">What We Export</div>
+      <h2 class="section-title">2,000+ Products Across 8 Core Categories</h2>
+      <p class="section-desc" style="margin:0 auto">
+        From everyday utensils to smart kitchen gadgets, we offer one-stop sourcing covering every corner of the kitchen.
+      </p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal" onclick="openModal('Kitchen Gadgets', 'Garlic presses, can openers, peelers, graters, zesters, jar openers, egg tools, herb scissors, and innovative kitchen helpers. Smart designs that save time and effort in daily cooking. LFGB & FDA food-grade certified.')">
+        <div class="product-img"><img class="product-img-inner" src="images/kitchen-gadgets.jpg" alt="Kitchen Gadgets"></div>
+        <div class="product-info">
+          <div class="product-name">Kitchen Gadgets</div>
+          <div class="product-count">Innovative helpers for daily cooking</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Kitchen Utensils', 'Silicone spatulas, ladles, turners, tongs, whisks, serving spoons, and pasta servers. Available in nylon, silicone, stainless steel, and beechwood handles. Heat-resistant up to 230°C. LFGB & FDA certified.')">
+        <div class="product-img"><img class="product-img-inner" src="images/kitchen-utensils.jpg" alt="Kitchen Utensils"></div>
+        <div class="product-info">
+          <div class="product-name">Kitchen Utensils</div>
+          <div class="product-count">Essential tools for every kitchen</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Tea Infuser', 'Silicone tea infusers, stainless steel mesh strainers, tea balls, teapots with infusers, and novelty-shaped infusers. BPA-free, heat-resistant, and dishwasher-safe materials for daily tea brewing.')">
+        <div class="product-img"><img class="product-img-inner" src="images/tea-infuser.jpg" alt="Tea Infuser"></div>
+        <div class="product-info">
+          <div class="product-name">Tea Infuser</div>
+          <div class="product-count">Perfect brew, every time</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Food Tongs', 'Silicone-tipped locking tongs, stainless steel utility tongs, serving tongs, grill tongs, salad tongs, and mini tongs. Ergonomic handles with soft-grip, heat-resistant silicone heads up to 230°C.')">
+        <div class="product-img"><img class="product-img-inner" src="images/food-tongs.jpg" alt="Food Tongs"></div>
+        <div class="product-info">
+          <div class="product-name">Food Tongs</div>
+          <div class="product-count">Precision grip for every task</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Bakeware', 'Silicone baking mats, muffin pans, loaf pans, cake molds, rolling pins, pastry brushes, cookie cutters, cooling racks, and measuring sets. Professional-grade non-stick silicone and carbon steel. Oven-safe up to 240°C.')">
+        <div class="product-img"><img class="product-img-inner" src="images/bakeware.jpg" alt="Bakeware"></div>
+        <div class="product-info">
+          <div class="product-name">Bakeware</div>
+          <div class="product-count">Professional & hobbyist baking essentials</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Silicone Tools', 'Silicone spatulas, pastry brushes, basting brushes, ice cube trays, chocolate molds, trivets, coasters, oven mitts, and collapsible colanders. Premium LFGB-grade platinum silicone. Non-stick, odor-free, stain-resistant.')">
+        <div class="product-img"><img class="product-img-inner" src="images/silicone-tools.jpg" alt="Silicone Tools"></div>
+        <div class="product-info">
+          <div class="product-name">Silicone Tools</div>
+          <div class="product-count">Premium platinum silicone collection</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('BBQ Tools', 'Stainless steel BBQ tongs, spatulas, grill brushes, skewers, meat thermometers, basting brushes, and complete grill tool sets. Heavy-duty construction with long handles and ergonomic wooden or silicone grips.')">
+        <div class="product-img"><img class="product-img-inner" src="images/bbq-tools.jpg" alt="BBQ Tools"></div>
+        <div class="product-info">
+          <div class="product-name">BBQ Tools</div>
+          <div class="product-count">Heavy-duty grilling essentials</div>
+        </div>
+      </div>
+      <div class="product-card reveal" onclick="openModal('Knife and Scissors', 'Chef knives, santoku knives, bread knives, paring knives, knife blocks & sets, kitchen shears, and multi-purpose scissors. High-carbon stainless steel blades with precision edges and comfort-grip handles.')">
+        <div class="product-img"><img class="product-img-inner" src="images/knife-scissors.jpg" alt="Knife and Scissors"></div>
+        <div class="product-info">
+          <div class="product-name">Knife and Scissors</div>
+          <div class="product-count">Sharp precision for every cut</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section certs" id="certs">
+  <div class="section-container">
+    <div class="certs-header reveal">
+      <div class="section-label">Quality Assurance</div>
+      <h2 class="section-title">Internationally Certified</h2>
+      <p class="section-desc" style="margin:0 auto">
+        Our products meet the strictest international standards, giving you confidence in every shipment.
+      </p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon">FDA</div>
+        <div class="cert-name">FDA</div>
+        <div class="cert-desc">US Food and Drug Administration — food-contact material compliance</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">LF</div>
+        <div class="cert-name">LFGB</div>
+        <div class="cert-desc">German Food and Feed Code — the EU's strictest food-contact standard</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">BSCI</div>
+        <div class="cert-name">BSCI</div>
+        <div class="cert-desc">Business Social Compliance Initiative — ethical manufacturing audit</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">BR</div>
+        <div class="cert-name">BRCGS</div>
+        <div class="cert-desc">Brand Reputation through Compliance Global Standard — food safety certification</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">ISO</div>
+        <div class="cert-name">ISO 9001</div>
+        <div class="cert-desc">Quality Management Systems — internationally recognized standard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OEM/ODM & Private Label -->
+<section class="section capabilities" id="oem">
+  <div class="section-container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Custom Solutions</div>
+      <h2 class="section-title light">OEM / ODM & Private Label</h2>
+      <p class="section-desc light" style="margin:0 auto">
+        Your brand, your design, your market — we make it happen with end-to-end custom manufacturing.
+      </p>
+    </div>
+    <div class="capabilities-grid reveal">
+      <div class="cap-list">
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#128736;&#65039;</div>
+            <div class="cap-item-title">OEM Manufacturing</div>
+            <div class="cap-item-desc">Provide your specs or sample — we reverse-engineer and produce to exact requirements. CAD drawings and 3D prototypes for every new development. 50+ design and utility patents.</div>
+          </div>
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#127912;</div>
+            <div class="cap-item-title">ODM Product Design</div>
+            <div class="cap-item-desc">In-house R&D team develops 2 new product lines per year. From concept sketching to final production, we create unique products for your market. Free design consultation included.</div>
+          </div>
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#127991;&#65039;</div>
+            <div class="cap-item-title">Private Label Service</div>
+            <div class="cap-item-desc">Complete branding on existing products — laser engraving, silk printing, embossing, and custom color matching. Low MOQ starting from 500 pcs per SKU for private label orders.</div>
+          </div>
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#128230;</div>
+            <div class="cap-item-title">Custom Packaging</div>
+            <div class="cap-item-desc">Full range of packaging solutions: color boxes, display boxes, blister cards, mailer boxes, and PDQ (Product Display Quick) trays. Custom inserts, hang tags, and UPC barcodes. Retail-ready or e-commerce optimized.</div>
+          </div>
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#128200;</div>
+            <div class="cap-item-title">Flexible MOQ</div>
+            <div class="cap-item-desc">Trial orders welcome. Mixed containers supported — combine multiple products in one shipment. FOB and CIF terms available. 30-45 day standard lead time, rush orders negotiable.</div>
+          </div>
+          <div class="cap-item" style="border-left:3px solid var(--gold)">
+            <div class="cap-item-icon">&#128188;</div>
+            <div class="cap-item-title">Trade Documentation</div>
+            <div class="cap-item-desc">Professional PI, commercial invoice, packing list, Certificate of Origin, and all required export documentation handled in-house. Smooth customs clearance for US, EU, and South American markets.</div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quality Control -->
+<section class="section quality" id="quality">
+  <div class="section-container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Quality Assurance</div>
+      <h2 class="section-title">Rigorous Control, Consistent Excellence</h2>
+      <p class="section-desc" style="margin:0 auto">
+        Our full-chain quality management system delivers 99.2% pass rate and less than 0.5% defect rate.
+      </p>
+    </div>
+    <div class="reveal" style="display:flex; gap:32px; flex-wrap:wrap; margin-top:60px; justify-content:center">
+      <div style="flex:1; min-width:280px; max-width:400px; background:var(--white); border-radius:var(--radius-lg); padding:40px 32px; text-align:center; border:1px solid var(--border)">
+        <div style="font-size:48px; margin-bottom:16px">&#128269;</div>
+        <h3 style="font-size:18px; font-weight:700; color:var(--forest); margin-bottom:12px">IQC · Incoming Quality Control</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">All raw materials inspected upon arrival. Silicone, stainless steel, plastics, and coatings tested for composition, thickness, and food-grade compliance before production.</p>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px; background:var(--white); border-radius:var(--radius-lg); padding:40px 32px; text-align:center; border:1px solid var(--border)">
+        <div style="font-size:48px; margin-bottom:16px">&#9881;&#65039;</div>
+        <h3 style="font-size:18px; font-weight:700; color:var(--forest); margin-bottom:12px">IPQC · In-Process Quality Control</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">Real-time monitoring during each production stage — molding, assembly, welding, coating. Random sampling at every workstation to catch defects before they reach the next process.</p>
+      </div>
+      <div style="flex:1; min-width:280px; max-width:400px; background:var(--white); border-radius:var(--radius-lg); padding:40px 32px; text-align:center; border:1px solid var(--border)">
+        <div style="font-size:48px; margin-bottom:16px">&#9989;</div>
+        <h3 style="font-size:18px; font-weight:700; color:var(--forest); margin-bottom:12px">FQC · Final Quality Control</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">AQL 2.5 / 4.0 sampling before shipment. Function, appearance, packaging, and labeling checks. Third-party testing by SGS, BV, or Intertek available upon request with full lab reports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section" style="background:var(--cream)">
+  <div class="section-container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Why Eversun</div>
+      <h2 class="section-title">Competitive Advantages That Drive Your Business</h2>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; margin-top:60px">
+      <div style="background:var(--white); border-radius:var(--radius-lg); padding:36px 28px; border:1px solid var(--border); transition:all 0.3s">
+        <div style="font-size:32px; margin-bottom:16px">&#128176;</div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--forest); margin-bottom:10px">Competitive Pricing</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">Direct factory pricing with no middleman markup. 3 owned production facilities controlling cost at every stage. Volume discounts and annual contract pricing available.</p>
+      </div>
+      <div style="background:var(--white); border-radius:var(--radius-lg); padding:36px 28px; border:1px solid var(--border); transition:all 0.3s">
+        <div style="font-size:32px; margin-bottom:16px">&#128666;</div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--forest); margin-bottom:10px">Fast & Reliable Delivery</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">30-45 day standard production lead time. Mixed containers and consolidated shipments to optimize logistics. Strong relationships with major shipping lines for competitive freight rates.</p>
+      </div>
+      <div style="background:var(--white); border-radius:var(--radius-lg); padding:36px 28px; border:1px solid var(--border); transition:all 0.3s">
+        <div style="font-size:32px; margin-bottom:16px">&#128218;</div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--forest); margin-bottom:10px">Professional Service</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">Multilingual team in English, Spanish, and Chinese. 24-48 hour quote turnaround. Dedicated account manager for every client. Regular updates with photos and videos during production.</p>
+      </div>
+      <div style="background:var(--white); border-radius:var(--radius-lg); padding:36px 28px; border:1px solid var(--border); transition:all 0.3s">
+        <div style="font-size:32px; margin-bottom:16px">&#127775;</div>
+        <h3 style="font-size:17px; font-weight:700; color:var(--forest); margin-bottom:10px">Innovation-Driven</h3>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7">50+ design & utility patents. 2 new product lines launched annually. Market trend monitoring to bring trending products to your shelves first. Custom R&D from concept to mass production.</p>
+      </div>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:60px; text-align:center">
+      <div style="padding:32px 16px; background:var(--white); border-radius:var(--radius-lg); border:2px solid var(--gold)">
+        <div style="font-size:42px; font-weight:800; color:var(--forest); font-family:'Playfair Display',serif">50+</div>
+        <div style="font-size:14px; color:var(--text-light); margin-top:8px">Countries Served</div>
+      </div>
+      <div style="padding:32px 16px; background:var(--white); border-radius:var(--radius-lg); border:2px solid var(--gold)">
+        <div style="font-size:42px; font-weight:800; color:var(--forest); font-family:'Playfair Display',serif">2,000+</div>
+        <div style="font-size:14px; color:var(--text-light); margin-top:8px">Product SKUs</div>
+      </div>
+      <div style="padding:32px 16px; background:var(--white); border-radius:var(--radius-lg); border:2px solid var(--gold)">
+        <div style="font-size:42px; font-weight:800; color:var(--forest); font-family:'Playfair Display',serif">50+</div>
+        <div style="font-size:14px; color:var(--text-light); margin-top:8px">Patents</div>
+      </div>
+      <div style="padding:32px 16px; background:var(--white); border-radius:var(--radius-lg); border:2px solid var(--gold)">
+        <div style="font-size:42px; font-weight:800; color:var(--forest); font-family:'Playfair Display',serif">99.2%</div>
+        <div style="font-size:14px; color:var(--text-light); margin-top:8px">Quality Pass Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Markets -->
+<section class="section markets" id="markets">
+  <div class="section-container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Global Reach</div>
+      <h2 class="section-title">Serving Key Markets Worldwide</h2>
+      <p class="section-desc" style="margin:0 auto">
+        Deep market knowledge and strong logistics networks across our core regions.
+      </p>
+    </div>
+    <div class="markets-grid">
+      <div class="market-card reveal">
+        <div class="market-pct">43.23%</div>
+        <div class="market-name">North America</div>
+      </div>
+      <div class="market-card reveal">
+        <div class="market-pct">20.32%</div>
+        <div class="market-name">South America</div>
+      </div>
+      <div class="market-card reveal">
+        <div class="market-pct">17.74%</div>
+        <div class="market-name">Western Europe</div>
+      </div>
+      <div class="market-card reveal">
+        <div class="market-pct">11.29%</div>
+        <div class="market-name">Eastern Europe</div>
+      </div>
+      <div class="market-card reveal">
+        <div class="market-pct">6.45%</div>
+        <div class="market-name">Africa</div>
+      </div>
+      <div class="market-card reveal">
+        <div class="market-pct">0.97%</div>
+        <div class="market-name">Mid East</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">Let's Work Together</div>
+      <h2 class="section-title">Start Your Sourcing Journey</h2>
+      <p class="section-desc">
+        Whether you need a full container of silicone kitchenware or custom-branded cookware, we are ready to help. Tell us what you're looking for.
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-icon">&#127760;</div>
+          <div>
+            <div class="contact-info-title">Canton Fair Booth</div>
+            <div class="contact-info-desc">Booth B47-48, Hall 1.2, Area A — 2nd Phase. Visit us in Guangzhou!</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">&#9993;&#65039;</div>
+          <div>
+            <div class="contact-info-title">Email</div>
+            <div class="contact-info-desc">tony@yjeversun.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">&#128222;</div>
+          <div>
+            <div class="contact-info-title">WhatsApp / WeChat</div>
+            <div class="contact-info-desc">+86-015219359767</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">&#128205;</div>
+          <div>
+            <div class="contact-info-title">Headquarters & Showroom</div>
+            <div class="contact-info-desc">Yangjiang, Guangdong, China — the global kitchenware manufacturing capital. Visit our in-house showroom any time.</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">&#128172;</div>
+          <div>
+            <div class="contact-info-title">Languages</div>
+            <div class="contact-info-desc">English · Español · 中文 — seamless communication guaranteed</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Name *</label>
+            <input type="text" class="form-input" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Company *</label>
+            <input type="text" class="form-input" placeholder="Your Company Name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Product Interest</label>
+            <select class="form-input" style="appearance:auto">
+              <option value="">— Select a category —</option>
+              <option>Kitchen Gadgets</option>
+              <option>Kitchen Utensils</option>
+              <option>Tea Infuser</option>
+              <option>Food Tongs</option>
+              <option>Bakeware</option>
+              <option>Silicone Tools</option>
+              <option>BBQ Tools</option>
+              <option>Knife and Scissors</option>
+              <option>OEM / ODM Custom Product</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message *</label>
+            <textarea class="form-textarea" placeholder="Tell us about your requirements — target quantity, target market, certification needs, branding preferences, or specific product ideas..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry &#8594;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name"><img src="images/logo.png" alt="Eversun"></div>
+        <p class="footer-brand-desc">
+          Yangjiang Eversun Housewares Co., Ltd. — Premium kitchenware manufacturer and exporter with 12+ years of experience, 3 factories, 200+ staff, serving 50+ countries worldwide. FDA · LFGB · BSCI · ISO 9001 · BRCGS certified.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Products</div>
+        <ul class="footer-col-links">
+          <li><a href="#products">Kitchen Gadgets</a></li>
+          <li><a href="#products">Kitchen Utensils</a></li>
+          <li><a href="#products">Tea Infuser</a></li>
+          <li><a href="#products">Bakeware</a></li>
+          <li><a href="#products">All 8 Categories</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-col-links">
+          <li><a href="#oem">OEM / ODM</a></li>
+          <li><a href="#oem">Private Label</a></li>
+          <li><a href="#quality">Quality Control</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#markets">Global Markets</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-col-links">
+          <li><a href="#contact">Send Inquiry</a></li>
+          <li><a href="mailto:tony@yjeversun.com">Email Us</a></li>
+          <li>Canton Fair: B47-48, Hall 1.2</li>
+          <li>Yangjiang, Guangdong</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Eversun. All rights reserved. Yangjiang, Guangdong, China.</div>
+      <div class="footer-social">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="WhatsApp">WA</a>
+        <a href="#" title="WeChat">WX</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Product Detail Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// Preloader
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+});
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile menu toggle
+const toggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    navLinks.classList.remove('active');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Hero particles
+const particlesContainer = document.getElementById('heroParticles');
+for (let i = 0; i < 15; i++) {
+  const particle = document.createElement('div');
+  particle.classList.add('hero-particle');
+  const size = Math.random() * 120 + 40;
+  particle.style.width = size + 'px';
+  particle.style.height = size + 'px';
+  particle.style.left = Math.random() * 100 + '%';
+  particle.style.top = Math.random() * 100 + '%';
+  particle.style.animationDelay = Math.random() * 20 + 's';
+  particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+  particlesContainer.appendChild(particle);
+}
+
+// Modal
+function openModal(title, body) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').textContent = body;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  const original = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Message Sent! ✓';
+    btn.style.background = '#2D6A4F';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 2500);
+  }, 1000);
+}
+
+// ========================================
+// About Image Slider — mouse-position-based cycling
+// ========================================
+(function(){
+  const slider = document.getElementById('aboutImageSlider');
+  if (!slider) return;
+  const slides = slider.querySelectorAll('.about-image-slide');
+  const dots   = slider.querySelectorAll('.about-image-dot');
+  const total  = slides.length;
+  let current  = 0;
+
+  function showSlide(idx) {
+    if (idx === current) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = idx;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  slider.addEventListener('mousemove', function(e) {
+    const rect = slider.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const zone = Math.floor((x / rect.width) * total);
+    showSlide(Math.min(zone, total - 1));
+  });
+
+  // click on dots
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showSlide(parseInt(this.dataset.dot));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
