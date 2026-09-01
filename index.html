@@ -473,30 +473,68 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .cap-highlight-desc { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 4px; }
 
 /* ========================================
-   MARKETS
+   CANTON FAIR
    ======================================== */
-.markets { background: var(--cream); }
-.markets-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  margin-top: 60px;
+.cantonfair { background: var(--cream); }
+.cantonfair-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 60px 8px 30px;
+  margin: 0 -8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
 }
-.market-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  padding: 44px 32px; text-align: center;
-  border: 1px solid var(--border);
+.cantonfair-scroll::-webkit-scrollbar { height: 8px; }
+.cantonfair-scroll::-webkit-scrollbar-track { background: transparent; }
+.cantonfair-scroll::-webkit-scrollbar-thumb {
+  background: var(--gold); border-radius: 4px;
+}
+.cf-card {
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition);
+  border: 1px solid var(--border);
 }
-.market-card:hover {
+.cf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
   border-color: var(--gold);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
 }
-.market-pct {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px; font-weight: 700; color: var(--forest);
-  margin-bottom: 8px; line-height: 1.1;
+.cf-card-img {
+  width: 100%; height: 460px;
+  object-fit: cover; display: block;
 }
-.market-name { font-weight: 600; font-size: 16px; color: var(--text-medium); }
+.cf-card-body { padding: 18px 22px 22px; }
+.cf-card-title { font-weight: 600; font-size: 15px; color: var(--forest); margin-bottom: 4px; }
+.cf-card-sub { font-size: 13px; color: var(--text-light); }
+.cf-arrows {
+  display: flex; gap: 10px; justify-content: center;
+  margin-top: 16px;
+}
+.cf-arrows button {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--forest);
+  font-size: 18px; cursor: pointer;
+  transition: all var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.cf-arrows button:hover {
+  background: var(--forest); color: var(--white); border-color: var(--forest);
+}
+.cf-hint {
+  text-align: center; font-size: 13px; color: var(--text-light);
+  margin-top: 4px;
+}
 
 /* ========================================
    CONTACT
@@ -618,7 +656,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .nav-links a { color: var(--text-medium) !important; font-size: 16px; }
   .nav-cta { margin-top: 16px; display: inline-block; text-align: center; }
   .hero-title { font-size: 36px; }
-  .markets-grid { grid-template-columns: 1fr; }
+  .cf-card { flex: 0 0 300px; }
+  .cf-card-img { height: 380px; }
   .products-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
   .certs-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .cap-list { grid-template-columns: repeat(2, 1fr); }
@@ -1006,42 +1045,67 @@ button { cursor: pointer; border: none; font-family: inherit; }
   </div>
 </section>
 
-<!-- Markets -->
-<section class="section markets" id="markets">
+<!-- Canton Fair -->
+<section class="section cantonfair" id="cantonfair">
   <div class="section-container">
     <div class="reveal" style="text-align:center">
-      <div class="section-label">Global Reach</div>
-      <h2 class="section-title">Serving Key Markets Worldwide</h2>
+      <div class="section-label">Canton Fair</div>
+      <h2 class="section-title">Meet Us at the Fair</h2>
       <p class="section-desc" style="margin:0 auto">
-        Deep market knowledge and strong logistics networks across our core regions.
+        Twice a year we welcome buyers from around the world at the Canton Fair — face-to-face conversations, live product demos, and on-the-spot sampling.
       </p>
     </div>
-    <div class="markets-grid">
-      <div class="market-card reveal">
-        <div class="market-pct">43.23%</div>
-        <div class="market-name">North America</div>
+
+    <div class="cantonfair-scroll" id="cfScroll">
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-1.jpg" alt="Canton Fair Booth — Buyers from Europe &amp; South America" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">European Buyers Visiting Our Booth</div>
+          <div class="cf-card-sub">Phase 1 · Home &amp; Kitchenware</div>
+        </div>
       </div>
-      <div class="market-card reveal">
-        <div class="market-pct">20.32%</div>
-        <div class="market-name">South America</div>
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-2.jpg" alt="Canton Fair Booth — On-site Product Demo" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">On-site Product Demo</div>
+          <div class="cf-card-sub">Walking buyers through our new collections</div>
+        </div>
       </div>
-      <div class="market-card reveal">
-        <div class="market-pct">17.74%</div>
-        <div class="market-name">Western Europe</div>
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-3.jpg" alt="Canton Fair Booth — South American Buyer" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">South American Buyer Partnership</div>
+          <div class="cf-card-sub">Building long-term sourcing relationships</div>
+        </div>
       </div>
-      <div class="market-card reveal">
-        <div class="market-pct">11.29%</div>
-        <div class="market-name">Eastern Europe</div>
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-4.jpg" alt="Canton Fair Booth — Discussing OEM/ODM Project" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">Discussing OEM / ODM Projects</div>
+          <div class="cf-card-sub">Custom tooling &amp; packaging solutions</div>
+        </div>
       </div>
-      <div class="market-card reveal">
-        <div class="market-pct">6.45%</div>
-        <div class="market-name">Africa</div>
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-5.jpg" alt="Canton Fair Booth — Full Team with International Visitors" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">Team &amp; International Visitors</div>
+          <div class="cf-card-sub">Booth No. 4.2H06 — see you next session</div>
+        </div>
       </div>
-      <div class="market-card reveal">
-        <div class="market-pct">0.97%</div>
-        <div class="market-name">Mid East</div>
+      <div class="cf-card">
+        <img class="cf-card-img" src="images/canton-fair-6.jpg" alt="Canton Fair Booth — Buyers Browsing Product Range" loading="lazy">
+        <div class="cf-card-body">
+          <div class="cf-card-title">Buyers Browsing Our Range</div>
+          <div class="cf-card-sub">2,000+ SKUs across 8 categories on display</div>
+        </div>
       </div>
     </div>
+
+    <div class="cf-arrows">
+      <button onclick="document.getElementById('cfScroll').scrollBy({left:-420, behavior:'smooth'})" aria-label="Previous">‹</button>
+      <button onclick="document.getElementById('cfScroll').scrollBy({left:420, behavior:'smooth'})" aria-label="Next">›</button>
+    </div>
+    <div class="cf-hint">← Swipe to see more →</div>
   </div>
 </section>
 
@@ -1161,7 +1225,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
           <li><a href="#oem">Private Label</a></li>
           <li><a href="#quality">Quality Control</a></li>
           <li><a href="#certs">Certifications</a></li>
-          <li><a href="#markets">Global Markets</a></li>
+          <li><a href="#cantonfair">Canton Fair</a></li>
         </ul>
       </div>
       <div>
