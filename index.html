@@ -12,7 +12,7 @@
 <meta property="og:title" content="Eversun — Thoughtfully made. For everyday living.">
 <meta property="og:description" content="Kitchenware collections and custom manufacturing for your next collection.">
 <meta property="og:url" content="https://www.yjeversun.com/">
-<meta property="og:image" content="https://www.yjeversun.com/images/kitchen-utensils.jpg">
+<meta property="og:image" content="https://www.yjeversun.com/images/eversun-company.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,21 +63,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .nav-links .btn{min-height:40px;padding:9px 18px}
 .menu-toggle{display:none;background:transparent;border:1px solid var(--line);padding:10px 14px;border-radius:6px;color:var(--forest)}
 
-/* Editorial hero */
-.hero{padding:66px 0 58px}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:64px}
-.hero h1{font-size:clamp(48px,5.9vw,78px);max-width:640px}
-.hero h1 em{color:#7C672F;font-weight:400}
-.hero-subtitle{max-width:740px;color:var(--muted);font-size:15px;line-height:1.85;margin:28px 0}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.hero-foot{margin-top:42px;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:11px;letter-spacing:.04em}
-.hero-foot:before{content:'';height:1px;width:32px;background:var(--gold)}
-.hero-visual{position:relative;padding:0 0 30px 20px}
-.hero-photo{aspect-ratio:1/1.05;width:100%;object-fit:cover;border-radius:120px 12px 12px 12px;background:#E8E6DC}
-.hero-caption{position:absolute;bottom:0;left:0;right:34px;background:var(--forest);color:white;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-radius:8px}
-.hero-caption span{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:#C3D0C3}
-.hero-caption strong{font-family:var(--serif);font-size:24px;font-weight:400;display:block}
-.hero-caption b{font-size:25px;color:#D1AF66;font-weight:400}
+/* Introductory brand strip */
+
 .intro-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .strip-grid{display:grid;grid-template-columns:repeat(4,1fr)}
 .strip-item{padding:25px 26px;border-right:1px solid var(--line)}
@@ -194,11 +181,8 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .dialog-inner p{color:var(--muted);font-size:14px}
 .dialog-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 
-@media(min-width:1500px){.hero{padding-top:85px;padding-bottom:75px}
-}
-
 @media(max-width:1100px){.nav-links{gap:17px}
-.hero-grid{gap:35px}
+
 .about-grid{gap:45px}
 .contact-grid{gap:45px}
 .steps{gap:20px}
@@ -213,11 +197,7 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .nav-links.open{display:flex}
 .nav-links a{padding:13px;font-size:14px}
 .nav-links .btn{margin-top:12px}
-.hero-grid{grid-template-columns:1fr 1fr;gap:24px}
-.hero h1{font-size:48px}
-.hero-caption{padding:18px;right:10px}
-.hero-caption strong{font-size:21px}
-.hero-subtitle br{display:none}
+
 .products-grid{grid-template-columns:repeat(2,1fr)}
 .section{padding:75px 0}
 .about-grid{gap:32px}
@@ -234,15 +214,7 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 
 @media(max-width:600px){.wrap{width:calc(100% - 40px)}
 .topline{font-size:9px;letter-spacing:.1em}
-.hero{padding:42px 0}
-.hero-grid{grid-template-columns:1fr;gap:35px}
-.hero h1{font-size:clamp(42px,12.4vw,52px)}
-.hero-subtitle{font-size:14px;margin:23px 0}
-.hero-foot{margin-top:26px}
-.hero-visual{padding-left:12px}
-.hero-photo{aspect-ratio:1.2/1;border-top-left-radius:80px}
-.hero-caption{right:22px;padding:19px 22px}
-.hero-caption strong{font-size:23px}
+
 .strip-grid{grid-template-columns:repeat(2,1fr)}
 .strip-item{padding:19px 14px!important}
 .strip-item:nth-child(2){border:0}
@@ -281,6 +253,24 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .dialog-actions .btn{width:100%}
 }
 
+/* Company hero: preserve the full architecture and keep the brand sign unobstructed. */
+.hero{padding:48px 0 32px}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:34px 56px}
+.hero-heading .eyebrow{margin-bottom:16px}
+.hero h1{font-size:clamp(40px,4.5vw,62px);line-height:1.13;max-width:720px}
+.hero h1 em{color:#7C672F;font-weight:400}
+.hero-subtitle{max-width:740px;color:var(--muted);font-size:14px;line-height:1.85;margin:0 0 22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{grid-column:1/-1;margin:0;min-width:0;overflow:hidden;border-radius:10px;background:#E9E8DF}
+.hero-photo{display:block;width:100%;height:auto;aspect-ratio:1200/675;object-fit:contain}
+.hero-caption{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 24px;background:var(--forest);color:#F6F5ED;font-size:12px}
+.hero-caption span:first-child{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#D6BE80}
+.hero-foot{grid-column:1/-1;text-align:center;margin-top:-16px;font-size:11px;letter-spacing:.05em;color:var(--muted)}
+@media(min-width:1500px){.hero{padding-top:60px}}
+@media(max-width:1100px){.hero-grid{gap:30px}.hero h1{font-size:clamp(36px,4.5vw,50px)}.hero-subtitle{font-size:13px}.hero-actions .btn{padding:12px 16px;gap:12px}}
+@media(max-width:800px){.hero{padding-top:34px}.hero-grid{grid-template-columns:1fr;gap:22px}.hero h1{font-size:clamp(36px,6.7vw,52px)}.hero-subtitle{font-size:14px}.hero-subtitle br{display:none}.hero-intro{max-width:620px}.hero-foot{margin-top:0}}
+@media(max-width:600px){.hero{padding-top:28px;padding-bottom:24px}.hero h1{font-size:clamp(33px,8.6vw,46px)}.hero-heading .eyebrow{font-size:10px;margin-bottom:12px}.hero-visual{margin:0 -20px;border-radius:0}.hero-caption{padding:14px 20px;gap:12px;font-size:10px}.hero-caption span:first-child{font-size:9px;letter-spacing:.1em}.hero-foot{font-size:10px}.hero-actions .btn{font-size:12px;flex:1;padding:12px;white-space:nowrap}}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *,*:before,*:after{animation:none!important;transition:none!important}
 }
@@ -312,28 +302,22 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 <main id="main">
 <section class="hero" id="home">
 <div class="wrap hero-grid">
-<div>
+<div class="hero-heading">
 <span class="eyebrow">Eversun Housewares · Since 2014</span>
-<h1>Thoughtfully made.<br>For <em>everyday</em>
-<br>living.</h1>
+<h1>Thoughtfully made.<br>For <em>everyday</em> living.</h1>
+</div>
+<div class="hero-intro">
 <p class="hero-subtitle">Kitchen utensils, creative gadgets &amp; baking essentials.<br>From our collections to your own custom designs.<br>Made for the way the world cooks.</p>
 <div class="hero-actions">
-<a class="btn" href="Eversun_Catalog_2026.html">Explore the catalog <span aria-hidden="true">↗</span>
-</a>
+<a class="btn" href="Eversun_Catalog_2026.html">Explore the catalog <span aria-hidden="true">↗</span></a>
 <a class="btn outline" href="#oem">Build your collection</a>
 </div>
+</div>
+<figure class="hero-visual">
+<img class="hero-photo" src="images/eversun-company.jpg" alt="Eversun company building with the EVERSUN sign above the main entrance" width="1200" height="675" fetchpriority="high">
+<figcaption class="hero-caption"><span>Discover Eversun</span><span>Your next collection starts here.</span></figcaption>
+</figure>
 <div class="hero-foot">For retailers, importers &amp; distributors worldwide</div>
-</div>
-<div class="hero-visual">
-<img class="hero-photo" src="images/kitchen-utensils.jpg" alt="Eversun kitchen utensils and food tongs in muted colors" width="600" height="630" fetchpriority="high">
-<div class="hero-caption">
-<div>
-<span>Discover Eversun</span>
-<strong>Your next collection starts here.</strong>
-</div>
-<b aria-hidden="true">↗</b>
-</div>
-</div>
 </div>
 </section>
 <div class="intro-strip">
