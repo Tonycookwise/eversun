@@ -92,8 +92,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .about{background:#F0F1E9}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .about-media{position:relative}
-.about-image-main{aspect-ratio:1/1;position:relative;overflow:hidden;border-radius:var(--radius);background:#E0E4D9}
-.about-image-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s}
+.about-image-main{aspect-ratio:16/10;position:relative;overflow:hidden;border-radius:var(--radius);background:#E0E4D9}
+.about-image-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .45s}
 .about-image-slide.active{opacity:1}
 .about-image-dots{display:flex;gap:9px;position:absolute;bottom:18px;left:20px;z-index:2;background:rgba(17,45,35,.7);padding:8px 10px;border-radius:30px}
 .about-image-dot{height:24px;width:24px;padding:0;border:0;border-radius:50%;background:transparent;position:relative}
@@ -230,7 +230,7 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .catalog-callout{display:block;padding:23px}
 .catalog-callout .btn{margin-top:18px}
 .about-grid{grid-template-columns:1fr;gap:30px}
-.about-image-main{aspect-ratio:1.15/1}
+.about-image-main{aspect-ratio:16/10}
 .about-copy h2{font-size:39px}
 .steps{gap:28px 22px}
 .step-no{margin-bottom:19px}
@@ -492,16 +492,16 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 <section class="section about" id="about">
 <div class="wrap about-grid">
 <div class="about-media">
-<div class="about-image-main" id="aboutImageSlider" role="region" aria-label="Our office and showroom">
-<img class="about-image-slide active" src="images/office.jpg" alt="Eversun office" width="600" height="600" loading="lazy">
-<img class="about-image-slide" src="images/showroom.jpg" alt="Eversun showroom" width="600" height="600" loading="lazy">
-<img class="about-image-slide" src="images/office-2.jpg" alt="Another view of the Eversun office" width="600" height="600" loading="lazy">
+<div class="about-image-main" id="aboutImageSlider" role="region" aria-label="Our showroom, office and reception">
+<img class="about-image-slide active" src="images/showroom.jpg?v=20260921-story" alt="Eversun showroom with kitchenware displays and meeting table" width="1200" height="410" loading="lazy">
+<img class="about-image-slide" src="images/office.jpg?v=20260921-story" alt="Eversun office and team workstations" width="732" height="433" loading="lazy">
+<img class="about-image-slide" src="images/office-2.jpg?v=20260921-story" alt="Eversun reception area with the company logo" width="738" height="433" loading="lazy">
 <div class="about-image-dots">
-<button class="about-image-dot" type="button" aria-label="Show office photo" aria-pressed="true">
+<button class="about-image-dot" type="button" aria-label="Show showroom photo" aria-pressed="true">
 </button>
-<button class="about-image-dot" type="button" aria-label="Show showroom photo" aria-pressed="false">
+<button class="about-image-dot" type="button" aria-label="Show office photo" aria-pressed="false">
 </button>
-<button class="about-image-dot" type="button" aria-label="Show second office photo" aria-pressed="false">
+<button class="about-image-dot" type="button" aria-label="Show reception photo" aria-pressed="false">
 </button>
 </div>
 </div>
