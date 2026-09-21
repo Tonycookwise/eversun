@@ -113,7 +113,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .oem .section-head p{color:#C1CFC3}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .step{border-top:1px solid #56735D;padding-top:24px}
-.step-no{font-family:var(--serif);font-size:34px;color:#D4B66B;display:block;margin-bottom:28px}
+.step-no{font-family:var(--serif);font-size:30px;color:#D4B66B;display:block;line-height:1}
 .step h3{font-size:17px;font-weight:500;margin-bottom:14px}
 .step p{font-size:13px;color:#C1CFC3}
 .service-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
@@ -233,7 +233,7 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .about-image-main{aspect-ratio:16/10}
 .about-copy h2{font-size:39px}
 .steps{gap:28px 22px}
-.step-no{margin-bottom:19px}
+.step-visual{margin-bottom:19px}
 .step h3{font-size:16px}
 .step p{font-size:12px}
 .quality-grid{grid-template-columns:1fr;gap:14px}
@@ -270,6 +270,18 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 @media(max-width:1100px){.hero-grid{gap:30px}.hero h1{font-size:clamp(36px,4.5vw,50px)}.hero-subtitle{font-size:13px}.hero-actions .btn{padding:12px 16px;gap:12px}}
 @media(max-width:800px){.hero{padding-top:34px}.hero-grid{grid-template-columns:1fr;gap:22px}.hero h1{font-size:clamp(36px,6.7vw,52px)}.hero-subtitle{font-size:14px}.hero-subtitle br{display:none}.hero-intro{max-width:620px}.hero-foot{margin-top:0}}
 @media(max-width:600px){.hero{padding-top:28px;padding-bottom:24px}.hero h1{font-size:clamp(33px,8.6vw,46px)}.hero-heading .eyebrow{font-size:10px;margin-bottom:12px}.hero-visual{margin:0 -20px;border-radius:0}.hero-caption{padding:14px 20px;gap:12px;font-size:10px}.hero-caption span:first-child{font-size:9px;letter-spacing:.1em}.hero-foot{font-size:10px}.hero-actions .btn{font-size:12px;flex:1;padding:12px;white-space:nowrap}}
+
+/* Original decorative SVG illustrations, not official certification marks. */
+.section-icon,.cert-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:60px;height:60px;border-radius:16px;background:#EEF1E8;color:var(--forest);border:1px solid #DDE3D4}
+.section-icon svg,.cert-icon svg{display:block;width:32px;height:32px}
+.step-visual{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.step .section-icon{background:#ffffff08;border-color:#6A8059;color:#DCC07B}
+.quality-card>.section-icon{margin-bottom:24px;background:var(--cream)}
+.cert{text-align:center;border:1px solid #E0E5D9;padding:26px 14px}
+.cert-icon{width:56px;height:56px;margin:0 auto 17px;border-radius:50%;background:var(--cream);color:#826220;border-color:#E2D7BA}
+.cert strong{margin-bottom:6px;line-height:1.35}
+.cert span{display:block;line-height:1.6}
+@media(max-width:600px){.section-icon{width:50px;height:50px;border-radius:13px}.step-visual{margin-bottom:19px}.section-icon svg{width:28px;height:28px}.quality-card>.section-icon{margin-bottom:20px}.cert{padding:22px 12px}.cert-icon{width:50px;height:50px}.cert strong{font-size:16px}}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *,*:before,*:after{animation:none!important;transition:none!important}
@@ -538,22 +550,22 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </div>
 <div class="steps">
 <article class="step">
-<span class="step-no">01</span>
+<div class="step-visual"><div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="7" y="6" width="18" height="23" rx="3"/><rect x="12" y="3" width="8" height="6" rx="2"/><path d="M12 15h8M12 20h8M12 25h5"/></svg></div><span class="step-no">01</span></div>
 <h3>Share your brief</h3>
 <p>Tell us about your market, product references, target quantity and requirements.</p>
 </article>
 <article class="step">
-<span class="step-no">02</span>
+<div class="step-visual"><div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m5 23-1 5 5-1L25 11l-4-4L5 23ZM18 10l4 4M5 23l4 4M22 6l2-2a2 2 0 0 1 3 0l1 1a2 2 0 0 1 0 3l-2 2"/><path d="M17 25h11M23 19v9"/></svg></div><span class="step-no">02</span></div>
 <h3>Develop &amp; sample</h3>
 <p>Explore materials, colors and design details. Review samples before confirming production.</p>
 </article>
 <article class="step">
-<span class="step-no">03</span>
+<div class="step-visual"><div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 5h12l13 13-11 11L4 15V5Z"/><circle cx="10" cy="11" r="2"/><path d="m16 17 5 5M19 14l5 5"/></svg></div><span class="step-no">03</span></div>
 <h3>Make it your own</h3>
 <p>Bring your identity to the product through logo application, color matching and packaging.</p>
 </article>
 <article class="step">
-<span class="step-no">04</span>
+<div class="step-visual"><div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 9h17v15H3V9ZM20 14h5l4 6v4h-9M21 19h7"/><circle cx="9" cy="25" r="3"/><circle cx="24" cy="25" r="3"/><path d="M6 5h11"/></svg></div><span class="step-no">04</span></div>
 <h3>Produce &amp; deliver</h3>
 <p>Coordinate manufacturing, quality checks, export documentation and shipment.</p>
 </article>
@@ -579,16 +591,19 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </div>
 <div class="quality-grid">
 <article class="quality-card">
+<div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m4 10 10-5 10 5-10 5-10-5ZM4 10v12l10 5V15M24 10v8"/><circle cx="23" cy="23" r="5"/><path d="m27 27 3 3"/></svg></div>
 <span>IQC / MATERIALS</span>
 <h3>A considered start.</h3>
 <p>Incoming materials are checked against the agreed specifications before they enter production.</p>
 </article>
 <article class="quality-card">
+<div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 8h24M4 16h24M4 24h24"/><rect x="9" y="5" width="5" height="6" rx="1" fill="var(--cream)"/><rect x="20" y="13" width="5" height="6" rx="1" fill="var(--cream)"/><rect x="8" y="21" width="5" height="6" rx="1" fill="var(--cream)"/></svg></div>
 <span>IPQC / PRODUCTION</span>
 <h3>Consistency in the making.</h3>
 <p>In-process checks follow key manufacturing stages to identify issues and keep production aligned.</p>
 </article>
 <article class="quality-card">
+<div class="section-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="6" y="5" width="20" height="24" rx="3"/><path d="M12 5V3h8v2M11 13l2 2 3-4M19 13h3M11 22l2 2 3-4M19 22h3"/></svg></div>
 <span>FQC / BEFORE SHIPMENT</span>
 <h3>Ready for the next step.</h3>
 <p>Final inspections cover product function, appearance, packaging and labeling against order requirements.</p>
@@ -598,22 +613,27 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 <h3>Compliance &amp; certification documentation</h3>
 <div class="cert-list">
 <div class="cert">
+<div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 4v7c0 3 6 3 6 0V4M8 4v24M24 4c-6 0-6 11 0 11s6-11 0-11ZM24 15v13"/></svg></div>
 <strong>FDA</strong>
 <span>Food-contact requirements</span>
 </div>
 <div class="cert">
+<div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 3h8M13 3v10L5 25c-1 2 0 4 3 4h16c3 0 4-2 3-4l-8-12V3M10 20h12"/><circle cx="13" cy="24" r="1"/><path d="M19 25h2"/></svg></div>
 <strong>LFGB</strong>
 <span>Food-contact testing</span>
 </div>
 <div class="cert">
+<div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="16" cy="9" r="4"/><path d="M8 28v-5a8 8 0 0 1 16 0v5M5 7a3 3 0 0 0 0 6M27 7a3 3 0 0 1 0 6M3 24v-4a5 5 0 0 1 4-5M29 24v-4a5 5 0 0 0-4-5"/></svg></div>
 <strong>amfori BSCI</strong>
 <span>Social compliance audit</span>
 </div>
 <div class="cert">
+<div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M26 12a11 11 0 0 0-19-4L4 11M4 5v6h6M6 20a11 11 0 0 0 19 4l3-3M28 27v-6h-6"/><path d="m11 16 3 3 7-7"/></svg></div>
 <strong>ISO 9001</strong>
 <span>Quality management</span>
 </div>
 <div class="cert">
+<div class="cert-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M8 3h11l6 6v20H8V3ZM19 3v7h6M12 15h9M12 20h9M12 25h5"/></svg></div>
 <strong>BRCGS</strong>
 <span>Applicable certification scope</span>
 </div>
