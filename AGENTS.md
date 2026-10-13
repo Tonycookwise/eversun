@@ -23,7 +23,7 @@ A static B2B brand showcase website for **Yangjiang Eversun Housewares Co., Ltd.
 
 ## Design System
 
-- **Brand colors**: forest green `#1B4332` (primary), gold `#C9972C` (accent), cream `#FBFAF5` (light background). Check `:root` CSS variables in `index.html`.
+- **Brand colors**: forest green `#1B4332` (primary), gold `#C9972C` (accent), white `#FFFFFF` (main background; legacy `--cream` variable now maps to white). Subtle pale-green section backgrounds remain for separation. Check `:root` CSS variables in `index.html`.
 - **Fonts**: Playfair Display (display numbers/titles) + system sans-serif.
 - **Style**: card-based layout, `border-radius`, restrained gold accents, generous spacing and editorial serif headings. Content stays visible without scroll-triggered animations; reduced-motion preferences are respected.
 
