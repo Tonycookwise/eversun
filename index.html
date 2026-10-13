@@ -254,6 +254,18 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .dialog-actions .btn{width:100%}
 }
 
+/* Owner-supplied Canton Fair invitation: full image, never cropped or stretched. */
+.fair-invitation{padding:24px 0 0}
+.fair-invitation-card{border:1px solid var(--line);border-radius:var(--radius);background:white;box-shadow:0 8px 28px #112d2306}
+.fair-invitation-art{display:block;border-radius:var(--radius) var(--radius) 0 0}
+.fair-invitation-art img{display:block;width:100%;height:auto;object-fit:contain;border-radius:inherit}
+.fair-invitation-details{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 26px;border-top:1px solid var(--line);background:#F2F3EB;border-radius:0 0 var(--radius) var(--radius)}
+.fair-invitation-details h2{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;font-weight:600;line-height:1.4;letter-spacing:0}
+.fair-invitation-facts{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:5px;font-size:13px;color:var(--muted)}
+.fair-invitation-facts strong{font-weight:600;color:var(--forest)}
+.fair-invitation-details .btn{flex-shrink:0}
+@media(max-width:600px){.fair-invitation{padding-top:16px}.fair-invitation-details{display:block;padding:18px}.fair-invitation-details h2{font-size:17px}.fair-invitation-facts{display:block;font-size:13px;line-height:1.8}.fair-invitation-facts span{display:block}.fair-invitation-details .btn{width:100%;margin-top:14px}}
+
 /* Company hero: preserve the full architecture and keep the brand sign unobstructed. */
 .hero{padding:48px 0 32px}
 .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:34px 56px}
@@ -313,6 +325,22 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </div>
 </header>
 <main id="main">
+<section class="fair-invitation" aria-labelledby="fairInvitationTitle">
+<div class="wrap">
+<div class="fair-invitation-card">
+<a class="fair-invitation-art fair-visit-link" href="#contact" aria-label="Plan a visit to Eversun at Canton Fair, October 23–27, booth B47–48, Hall 1.2, Area A">
+<img src="images/canton-fair-invitation-october.jpg" alt="EVERSUN Canton Fair invitation featuring kitchen utensils: October 23–27, booth B47–48, Hall 1.2, Area A. Welcome to visit us." width="1200" height="406" fetchpriority="high">
+</a>
+<div class="fair-invitation-details">
+<div>
+<h2 id="fairInvitationTitle">Meet us at Canton Fair</h2>
+<p class="fair-invitation-facts"><span><strong>October 23–27</strong></span><span>Booth <strong>B47–48</strong> · Hall 1.2 · Area A</span></p>
+</div>
+<a class="btn fair-visit-link" href="#contact">Plan your visit <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+</section>
 <section class="hero" id="home">
 <div class="wrap hero-grid">
 <div class="hero-heading">
@@ -327,7 +355,7 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </div>
 </div>
 <figure class="hero-visual">
-<img class="hero-photo" src="images/eversun-company.jpg?v=20260921" alt="Eversun company building with the EVERSUN sign above the main entrance" width="1200" height="800" fetchpriority="high">
+<img class="hero-photo" src="images/eversun-company.jpg?v=20260921" alt="Eversun company building with the EVERSUN sign above the main entrance" width="1200" height="800" loading="lazy">
 <figcaption class="hero-caption"><span>Discover Eversun</span><span>Your next collection starts here.</span></figcaption>
 </figure>
 <div class="hero-foot">For retailers, importers &amp; distributors worldwide</div>
@@ -829,6 +857,7 @@ document.querySelectorAll('.details-btn').forEach(btn=>btn.addEventListener('cli
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});dialog.addEventListener('close',()=>document.body.classList.remove('locked'));
 document.getElementById('dialogInquiry').addEventListener('click',e=>{document.getElementById('interest').value=e.currentTarget.dataset.interest;dialog.close();});
 const form=document.getElementById('inquiryForm'),status=document.getElementById('inquiryStatus');
+document.querySelectorAll('.fair-visit-link').forEach(link=>link.addEventListener('click',()=>{const message=form.elements.message;const visit='I would like to arrange a visit to Eversun at Canton Fair, October 23–27. Booth B47–48, Hall 1.2, Area A.';if(!message.value.includes(visit)){const addition=(message.value.trim()?'\n\n':'')+visit+'\nPreferred visit date/time: ';if(message.value.length+addition.length<=message.maxLength)message.value+=addition;}document.getElementById('draftOutput').hidden=true;status.textContent='Please add your preferred visit date and time, then prepare an email draft. Complete sending in your email app.';}));
 function buildInquiry(){const d=new FormData(form);return ['Hello Eversun,','','Name: '+d.get('name'),'Company: '+d.get('company'),'Email: '+d.get('email'),'Collection: '+(d.get('interest')||'Not specified'),'Estimated quantity: '+(d.get('quantity')||'To be discussed'),'','Requirements:',d.get('message'),'','Thank you.'].join('\n');}
 function showDraft(){const body=buildInquiry();const subject='Eversun inquiry — '+(form.elements.interest.value||'Kitchenware');const url='mailto:tony@yjeversun.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.getElementById('draftText').value=body;document.getElementById('emailDraftLink').href=url;document.getElementById('draftOutput').hidden=false;return body;}
 form.addEventListener('submit',e=>{e.preventDefault();showDraft();status.textContent='Your draft is ready below. Choose “Open email app” and complete sending there. Nothing has been sent yet.';document.getElementById('emailDraftLink').focus();});
