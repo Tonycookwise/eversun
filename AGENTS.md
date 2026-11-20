@@ -33,7 +33,7 @@ A static B2B brand showcase website for **Yangjiang Eversun Housewares Co., Ltd.
 - Compliance references displayed: FDA, LFGB, amfori BSCI, ISO 9001, BRCGS (no CE/RoHS). Keep testing, audit and certification language distinct; request applicable product/site documentation. See `docs/content-review.md`.
 - 8 product categories: Kitchen Gadgets, Kitchen Utensils, Tea Infuser, Food Tongs, Bakeware, Silicone Tools, BBQ Tools, Knife and Scissors
 - Hero subtitle is deliberately 3 lines on desktop (max-width 740px); it wraps naturally on smaller screens
-- Canton Fair gallery has exactly 4 photos (5/6 were removed due to orientation issues)
+- The original Canton Fair gallery at `#cantonfair` retains exactly 4 photos. A separate autumn 2026 booth gallery (`#autumn-2026`) beneath the homepage banner contains 7 owner-supplied photographs, arranged as 3 overview/display views plus 4 details, with an accessible photo viewer. The October banner is labeled as a completed exhibition recap; do not restore expired visit-booking copy. Optimized gallery images are `images/canton-fair-2026-autumn-*.jpg`; `-small` files are thumbnails. Only outer white source margins were removed, with photo content preserved.
 
 ## Workflow for Changes
 

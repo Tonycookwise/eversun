@@ -266,6 +266,33 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 .fair-invitation-details .btn{flex-shrink:0}
 @media(max-width:600px){.fair-invitation{padding-top:16px}.fair-invitation-details{display:block;padding:18px}.fair-invitation-details h2{font-size:17px}.fair-invitation-facts{display:block;font-size:13px;line-height:1.8}.fair-invitation-facts span{display:block}.fair-invitation-details .btn{width:100%;margin-top:14px}}
 
+/* Autumn 2026 booth gallery: three scene-setting photographs, four detail views. */
+.booth-gallery{padding:54px 0 46px;border-bottom:1px solid var(--line)}
+.booth-gallery-head{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:26px}
+.booth-gallery .eyebrow{margin-bottom:12px}
+.booth-gallery h2{font-size:clamp(30px,3.5vw,46px)}
+.booth-gallery-head p{max-width:370px;font-size:13px;color:var(--muted)}
+.booth-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.booth-grid.details{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:24px}
+.booth-card{margin:0;min-width:0}
+.booth-photo{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F5F6F3;cursor:zoom-in}
+.booth-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;display:block}
+.booth-photo:hover{border-color:var(--gold)}
+.booth-card figcaption{display:flex;gap:12px;padding:12px 2px 0;align-items:baseline;font-size:13px;font-weight:500;line-height:1.5}
+.booth-card figcaption span{font-size:10px;letter-spacing:.1em;color:#826220;font-weight:400}
+.booth-gallery-foot{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:28px}
+.booth-gallery-foot p{font-size:12px;color:var(--muted)}
+.booth-dialog{width:min(1160px,calc(100% - 32px));max-width:1160px;max-height:calc(100dvh - 32px);padding:20px;background:white}
+.booth-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:14px}
+.booth-dialog-header h2{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;font-weight:500;letter-spacing:0;line-height:1.4}
+.booth-dialog button{border:1px solid var(--line);background:white;color:var(--forest);border-radius:6px;min-width:44px;min-height:44px;padding:8px 14px}
+.booth-dialog .booth-close{font-size:25px;padding:2px 12px}
+.booth-dialog-image{width:100%;height:min(68vh,780px);height:min(68dvh,780px);object-fit:contain;background:#F5F6F3;border-radius:6px}
+.booth-dialog-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.booth-dialog-footer p{font-size:12px;color:var(--muted);text-align:center;margin:0}
+@media(max-width:900px){.booth-gallery-head{align-items:start;flex-direction:column;gap:16px}.booth-gallery-head p{max-width:600px}.booth-grid{gap:16px}.booth-grid.details{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}}
+@media(max-width:600px){.booth-gallery{padding:34px 0}.booth-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.booth-grid:not(.details) .booth-card:first-child{grid-column:1/-1}.booth-grid.details{gap:20px 12px;margin-top:20px}.booth-card figcaption{font-size:12px;gap:7px;padding-top:9px}.booth-gallery-foot{align-items:start;flex-direction:column;gap:14px}.booth-dialog{padding:14px}.booth-dialog-image{height:60vh;height:60dvh}.booth-dialog-footer{flex-wrap:wrap}.booth-dialog-footer p{order:3;width:100%}}
+
 /* Company hero: preserve the full architecture and keep the brand sign unobstructed. */
 .hero{padding:48px 0 32px}
 .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:34px 56px}
@@ -328,19 +355,31 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 <section class="fair-invitation" aria-labelledby="fairInvitationTitle">
 <div class="wrap">
 <div class="fair-invitation-card">
-<a class="fair-invitation-art fair-visit-link" href="#contact" aria-label="Plan a visit to Eversun at Canton Fair, October 23–27, booth B47–48, Hall 1.2, Area A">
+<a class="fair-invitation-art" href="#autumn-2026" aria-label="View Eversun booth photos from the autumn 2026 Canton Fair">
 <img src="images/canton-fair-invitation-october.jpg" alt="EVERSUN Canton Fair invitation featuring kitchen utensils: October 23–27, booth B47–48, Hall 1.2, Area A. Welcome to visit us." width="1200" height="406" fetchpriority="high">
 </a>
 <div class="fair-invitation-details">
 <div>
-<h2 id="fairInvitationTitle">Meet us at Canton Fair</h2>
-<p class="fair-invitation-facts"><span><strong>October 23–27</strong></span><span>Booth <strong>B47–48</strong> · Hall 1.2 · Area A</span></p>
+<h2 id="fairInvitationTitle">Autumn 2026 Canton Fair · Exhibition recap</h2>
+<p class="fair-invitation-facts"><span><strong>October 23–27, 2026</strong></span><span>Booth <strong>B47–48</strong> · Hall 1.2 · Area A</span></p>
 </div>
-<a class="btn fair-visit-link" href="#contact">Plan your visit <span aria-hidden="true">↗</span></a>
+<a class="btn" href="#autumn-2026">View booth highlights <span aria-hidden="true">↓</span></a>
 </div>
 </div>
 </div>
 </section>
+<section class="booth-gallery" id="autumn-2026" aria-labelledby="boothGalleryTitle">
+<div class="wrap">
+<div class="booth-gallery-head"><div><span class="eyebrow">From the show floor · Autumn 2026</span><h2 id="boothGalleryTitle">A closer look at our booth.</h2></div><p>Explore the kitchenware, seasonal designs and retail packaging displayed at our autumn 2026 Canton Fair booth.</p></div>
+<div class="booth-grid"><figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-overview.jpg" data-caption="Inside the Eversun booth" aria-label="Enlarge photo: Inside the Eversun booth"><img src="images/canton-fair-2026-autumn-overview-small.jpg" alt="Front view of the Eversun autumn 2026 Canton Fair booth with kitchenware and packaged product displays" width="600" height="450" loading="lazy" decoding="async"></a><figcaption><span>01</span>Inside the Eversun booth</figcaption></figure>
+<figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-tea-infuser-display.jpg" data-caption="Tea infusers &amp; retail packaging" aria-label="Enlarge photo: Tea infusers &amp; retail packaging"><img src="images/canton-fair-2026-autumn-tea-infuser-display-small.jpg" alt="Tea infusers and seasonal kitchen accessories in retail packaging at the Eversun booth" width="600" height="450" loading="lazy" decoding="async"></a><figcaption><span>02</span>Tea infusers &amp; retail packaging</figcaption></figure>
+<figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-retail-display.jpg" data-caption="A closer look at the displays" aria-label="Enlarge photo: A closer look at the displays"><img src="images/canton-fair-2026-autumn-retail-display-small.jpg" alt="Side view of the Eversun booth showing packaged kitchen gadgets and bakeware" width="600" height="450" loading="lazy" decoding="async"></a><figcaption><span>03</span>A closer look at the displays</figcaption></figure></div>
+<div class="booth-grid details"><figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-seasonal-gadgets.jpg" data-caption="Seasonal kitchen gadgets" aria-label="Enlarge photo: Seasonal kitchen gadgets"><img src="images/canton-fair-2026-autumn-seasonal-gadgets-small.jpg" alt="Seasonal bag clips, cookie cutters and pizza cutters on the booth display wall" width="600" height="450" loading="lazy" decoding="async"></a><figcaption><span>04</span>Seasonal kitchen gadgets</figcaption></figure>
+<figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-printed-spatulas.jpg" data-caption="Printed spatulas" aria-label="Enlarge photo: Printed spatulas"><img src="images/canton-fair-2026-autumn-printed-spatulas-small.jpg" alt="Printed spatulas and colorful kitchen accessories arranged on display shelves" width="484" height="600" loading="lazy" decoding="async"></a><figcaption><span>05</span>Printed spatulas</figcaption></figure>
+<figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-cooking-utensils.jpg" data-caption="Cooking utensils" aria-label="Enlarge photo: Cooking utensils"><img src="images/canton-fair-2026-autumn-cooking-utensils-small.jpg" alt="Cooking utensils displayed in rows at the autumn 2026 Eversun booth" width="450" height="600" loading="lazy" decoding="async"></a><figcaption><span>06</span>Cooking utensils</figcaption></figure>
+<figure class="booth-card"><a class="booth-photo" href="images/canton-fair-2026-autumn-bakeware-cutting-boards.jpg" data-caption="Bakeware &amp; cutting boards" aria-label="Enlarge photo: Bakeware &amp; cutting boards"><img src="images/canton-fair-2026-autumn-bakeware-cutting-boards-small.jpg" alt="Baking pans and cutting boards arranged on the Eversun booth shelves" width="600" height="450" loading="lazy" decoding="async"></a><figcaption><span>07</span>Bakeware &amp; cutting boards</figcaption></figure></div>
+<div class="booth-gallery-foot"><p>Seven views of our display. Select a photo for a closer look.</p><a class="text-link" href="index.html?product=Autumn%202026%20Canton%20Fair%20display#contact">Discuss the collection <span aria-hidden="true">↗</span></a></div>
+</div></section>
 <section class="hero" id="home">
 <div class="wrap hero-grid">
 <div class="hero-heading">
@@ -825,6 +864,11 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </div>
 </div>
 </footer>
+<dialog class="booth-dialog" id="boothDialog" aria-labelledby="boothPhotoTitle">
+<div class="booth-dialog-header"><h2 id="boothPhotoTitle">Autumn 2026 Canton Fair</h2><button class="booth-close" type="button" aria-label="Close booth photo" autofocus>×</button></div>
+<img class="booth-dialog-image" id="boothPhoto" alt="">
+<div class="booth-dialog-footer"><button type="button" id="boothPrevious" aria-label="Previous booth photo">← Previous</button><p id="boothPhotoCount" role="status" aria-live="polite"></p><button type="button" id="boothNext" aria-label="Next booth photo">Next →</button></div>
+</dialog>
 <dialog id="productDialog" aria-labelledby="dialogTitle">
 <div class="dialog-inner">
 <button class="dialog-close" type="button" aria-label="Close product details">×</button>
@@ -841,6 +885,18 @@ dialog::backdrop{background:rgba(10,28,20,.65);backdrop-filter:blur(5px)}
 </dialog>
 <script>
 'use strict';
+// Native photo viewer; links still open the photographs without JavaScript.
+const boothDialog=document.getElementById('boothDialog'),boothLinks=[...document.querySelectorAll('.booth-photo')];
+let boothIndex=0,boothOpener=null;
+function showBoothPhoto(index){boothIndex=(index+boothLinks.length)%boothLinks.length;const link=boothLinks[boothIndex],photo=document.getElementById('boothPhoto');photo.src=link.href;photo.alt=link.querySelector('img').alt;document.getElementById('boothPhotoTitle').textContent=link.dataset.caption;document.getElementById('boothPhotoCount').textContent=(boothIndex+1)+' / '+boothLinks.length+' · Autumn 2026 Canton Fair';}
+boothLinks.forEach((link,index)=>link.addEventListener('click',event=>{if(typeof boothDialog.showModal!=='function')return;event.preventDefault();boothOpener=link;showBoothPhoto(index);boothDialog.showModal();document.body.classList.add('locked');}));
+document.getElementById('boothPrevious').addEventListener('click',()=>showBoothPhoto(boothIndex-1));
+document.getElementById('boothNext').addEventListener('click',()=>showBoothPhoto(boothIndex+1));
+boothDialog.querySelector('.booth-close').addEventListener('click',()=>boothDialog.close());
+boothDialog.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();showBoothPhoto(boothIndex+(event.key==='ArrowRight'?1:-1));}});
+boothDialog.addEventListener('click',event=>{if(event.target===boothDialog){const r=boothDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)boothDialog.close();}});
+boothDialog.addEventListener('close',()=>{document.body.classList.remove('locked');if(boothOpener)boothOpener.focus({preventScroll:true});});
+
 const menuButton=document.getElementById('menuToggle'),menu=document.getElementById('navLinks');
 function closeMenu(){menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}
 menuButton.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
@@ -857,7 +913,6 @@ document.querySelectorAll('.details-btn').forEach(btn=>btn.addEventListener('cli
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});dialog.addEventListener('close',()=>document.body.classList.remove('locked'));
 document.getElementById('dialogInquiry').addEventListener('click',e=>{document.getElementById('interest').value=e.currentTarget.dataset.interest;dialog.close();});
 const form=document.getElementById('inquiryForm'),status=document.getElementById('inquiryStatus');
-document.querySelectorAll('.fair-visit-link').forEach(link=>link.addEventListener('click',()=>{const message=form.elements.message;const visit='I would like to arrange a visit to Eversun at Canton Fair, October 23–27. Booth B47–48, Hall 1.2, Area A.';if(!message.value.includes(visit)){const addition=(message.value.trim()?'\n\n':'')+visit+'\nPreferred visit date/time: ';if(message.value.length+addition.length<=message.maxLength)message.value+=addition;}document.getElementById('draftOutput').hidden=true;status.textContent='Please add your preferred visit date and time, then prepare an email draft. Complete sending in your email app.';}));
 function buildInquiry(){const d=new FormData(form);return ['Hello Eversun,','','Name: '+d.get('name'),'Company: '+d.get('company'),'Email: '+d.get('email'),'Collection: '+(d.get('interest')||'Not specified'),'Estimated quantity: '+(d.get('quantity')||'To be discussed'),'','Requirements:',d.get('message'),'','Thank you.'].join('\n');}
 function showDraft(){const body=buildInquiry();const subject='Eversun inquiry — '+(form.elements.interest.value||'Kitchenware');const url='mailto:tony@yjeversun.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.getElementById('draftText').value=body;document.getElementById('emailDraftLink').href=url;document.getElementById('draftOutput').hidden=false;return body;}
 form.addEventListener('submit',e=>{e.preventDefault();showDraft();status.textContent='Your draft is ready below. Choose “Open email app” and complete sending there. Nothing has been sent yet.';document.getElementById('emailDraftLink').focus();});
